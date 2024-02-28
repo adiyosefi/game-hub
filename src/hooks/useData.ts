@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import apiClient, {FetchResponse} from "../services/api-client";
 import {AxiosRequestConfig, CanceledError} from "axios";
+import APIClient from "../services/apiClient";
 
 // not used anymore- using react query instead
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
@@ -12,9 +12,9 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
         const controller = new AbortController();
 
         setLoading(true);
-        apiClient.get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
-            .then(res => {
-                setData(res.data.results);
+        new APIClient<T>(endpoint).get({ signal: controller.signal, ...requestConfig })
+            .then(data => {
+                setData(data.results);
                 setLoading(false);
             })
             .catch(err => {
