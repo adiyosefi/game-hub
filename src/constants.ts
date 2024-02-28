@@ -1,4 +1,4 @@
-import {GameQuery} from "./App";
+import {GameQuery} from "./store";
 
 export const CACHE_KEY_GENRES = ['genres'];
 export const CACHE_KEY_PLATFORMS = ['platforms'];
