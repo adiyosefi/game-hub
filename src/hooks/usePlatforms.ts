@@ -6,7 +6,7 @@ import ms from "ms";
 
 const usePlatforms = () => useQuery({
     queryKey: CACHE_KEY_PLATFORMS,
-    queryFn: platformsService.get,
+    queryFn: platformsService.getAll,
     staleTime: ms('24h'),
     initialData: platforms
 });

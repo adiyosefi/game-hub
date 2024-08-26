@@ -12,7 +12,7 @@ const useGames = () => {
         queryKey: CACHE_KEY_GAMES(gameQuery),
         initialPageParam: 1,
         queryFn: ({pageParam}) =>
-            gamesService.get({
+            gamesService.getAll({
                 params: {
                     genres: gameQuery.genreId,
                     parent_platforms: gameQuery.platformId,

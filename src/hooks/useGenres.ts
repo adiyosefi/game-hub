@@ -6,7 +6,7 @@ import ms from 'ms';
 
 const useGenres = () => useQuery({
     queryKey: CACHE_KEY_GENRES,
-    queryFn: genresService.get,
+    queryFn: genresService.getAll,
     staleTime: ms('24h'),
     initialData: genres
 });

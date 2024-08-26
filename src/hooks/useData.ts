@@ -12,7 +12,7 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
         const controller = new AbortController();
 
         setLoading(true);
-        new APIClient<T>(endpoint).get({ signal: controller.signal, ...requestConfig })
+        new APIClient<T>(endpoint).getAll({ signal: controller.signal, ...requestConfig })
             .then(data => {
                 setData(data.results);
                 setLoading(false);
